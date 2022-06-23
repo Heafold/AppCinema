@@ -9,13 +9,15 @@
 <ion-content [fullscreen]="true">
   <h1>Populaires</h1>
     <ion-list>
-      <ion-item *ngFor="let item of popular">
+      <ion-item *ngFor="let item of popular" routerLink="/detail">
         <ion-card>
-          <img src="https://image.tmdb.org/t/p/w200{{item.poster_path}}" />
+          <img src="https://image.tmdb.org/t/p/w200{{item.poster_path}}" style="margin-left: 30px;" />
           <ion-card-header>
             <ion-card-title>{{ item.original_title }}</ion-card-title>
           </ion-card-header>
-          <ion-card-content>
+          <ion-card-content style="display: flex; justify-content: space-around;">
+            <p>{{ item.release_date }}</p>
+            <p><ion-icon name="star-outline" style="margin-right: 3px;"></ion-icon>{{ item.vote_average }}</p>
           </ion-card-content>
         </ion-card>
       </ion-item>
